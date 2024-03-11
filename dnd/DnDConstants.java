@@ -1,14 +1,14 @@
 
 public class DnDConstants {
 
-    public final String[] strSkills = {"Athletics","Svaing Throw"};
-    public final String[] dexSkills = {"Acrobatics","Sleight of Hand","Stealth","Svaing Throw"};
-    public final String conSkills = "Svaing Throw";
-    public final String[] inlSkills = {"Arcana","History","Investigation","Nature","Religion","Svaing Throw"};
-    public final String[] wisSkills = {"Animal Handling","Insight","Medicine","Perception","Survival","Svaing Throw"};
-    public final String[] chaSkills = {"Deception","Intimidation","Performance","Persuasion","Svaing Throw"};
+    public static final String[] strSkills = {"Athletics","Svaing Throw"};
+    public static final String[] dexSkills = {"Acrobatics","Sleight of Hand","Stealth","Svaing Throw"};
+    public static final String  conSkills = "Svaing Throw";
+    public static final String[] inlSkills = {"Arcana","History","Investigation","Nature","Religion","Svaing Throw"};
+    public static final String[] wisSkills = {"Animal Handling","Insight","Medicine","Perception","Survival","Svaing Throw"};
+    public static final String[] chaSkills = {"Deception","Intimidation","Performance","Persuasion","Svaing Throw"};
 
-    public final String[] classes = {"Artificer","Barbarian","Bard","Cleric","Druid","Fighter","Monk","Paladin","Ranger","Rogue","Sorcerer","Warlock","Wizard"};
+    public static final String[] classes = {"Artificer","Barbarian","Bard","Cleric","Druid","Fighter","Monk","Paladin","Ranger","Rogue","Sorcerer","Warlock","Wizard"};
     public static final String[][] subClasses = {{"Alchemist","Armorer","Artillerist","Battle Smith"},
     {"Path of the Ancestral Guardian","Path of the Battlerager","Path of the Beast","Path of the Berserker","Path of the Giant","Path of the Storm Herald","Path of the Totem Warrior","Path of Wild Magic","Path of the Zealot",},
     {"College of Creatio","College of Eloquence","College of Glamour","College of Lore","College of Spirits","College of Swords","College of Valor","College of Whispers"},
@@ -25,6 +25,10 @@ public class DnDConstants {
 
     public static final String[] races = {"Aarakocra ","Aasimar ","Bullywug","Custom Lineage","Dragonborn","Dragonborn (Base)","Dragonborn (Chromatic) ","Dragonborn (Gem)","Dragonborn (Metallic) ","Dwarf","Dwarf (Hill)","Dwarf (Mountain)","Elf","Elf (Drow)","Elf (Eladrin)","Elf (High)","Elf (Wood)","Gnoll","Gnome","Gnome (Deep)","Gnome (Forest)","Gnome (Rock)","Goblin","Grimlock","Half-Elf","Half-Elf (Base)","Half-Orc","Half-Orc (Base)","Halfling","Halfling (Lightfoot)","Halfling (Stout)","Hobgoblin","Human","Human (Base)","Human (Variant)","Kenku","Kobold","Kuo-Toa","Lizardfolk","Merfolk","Orc","Skeleton","Tiefling","Tiefling (Base)","Troglodyte","Zombie"};
     
-    public static final String[] Alinments = {"Chaotic Good", "Neutral Good", "Lawful Good", "Chaotic Neutral", "True Neutral", "Lawful Neutral", "Chaotic Evil", "Neutral Evil", "Lawful Neutral"};
+    public static final String[] alinments = {"Chaotic Good", "Neutral Good", "Lawful Good", "Chaotic Neutral", "True Neutral", "Lawful Neutral", "Chaotic Evil", "Neutral Evil", "Lawful Neutral"};
+    
+    public static final String[] damgeTypes = {"Acid","Bludgeoning","Cold","Fire","Force","Lightning","Necrotic","Piercing","Poison","Psychic","Radiant","Slashing","Thunder"};
+
+    public static final String[] dice = {"d4","d6","d10","d12","d20","d100"};
 }
 
