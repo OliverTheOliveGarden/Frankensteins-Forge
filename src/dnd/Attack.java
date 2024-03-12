@@ -1,3 +1,5 @@
+package dnd;
+
 public class Attack {
     public String name;
     public String atkDice;
@@ -5,7 +7,7 @@ public class Attack {
     public String damgeType;
     public int atkBonus;
     
-    Attack(String name,String atkDice,int numOfAtkDice,String damgeType,int atkBonus) {
+    public Attack(String name,String atkDice,int numOfAtkDice,String damgeType,int atkBonus) {
         this.name = name;
         this.atkDice = atkDice;
         this.numOfAtkDice = numOfAtkDice;

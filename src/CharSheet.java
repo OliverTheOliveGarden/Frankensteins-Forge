@@ -5,6 +5,9 @@ import java.util.Scanner;
 import utils.ANSI;
 import utils.DiceRoller;
 
+import dnd.Attack;
+import dnd.DnDConstants;
+
 public class CharSheet { 
     //#region Golbal Vars
     private static final DiceRoller DiceRoller = new DiceRoller();

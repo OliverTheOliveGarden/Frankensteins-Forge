@@ -1,13 +1,14 @@
+package dnd;
 
 public class DnDConstants {
-
+ 
     public static final String[] strSkills = {"Athletics","Svaing Throw"};
     public static final String[] dexSkills = {"Acrobatics","Sleight of Hand","Stealth","Svaing Throw"};
     public static final String  conSkills = "Svaing Throw";
     public static final String[] inlSkills = {"Arcana","History","Investigation","Nature","Religion","Svaing Throw"};
     public static final String[] wisSkills = {"Animal Handling","Insight","Medicine","Perception","Survival","Svaing Throw"};
     public static final String[] chaSkills = {"Deception","Intimidation","Performance","Persuasion","Svaing Throw"};
-
+   
     public static final String[] classes = {"Artificer","Barbarian","Bard","Cleric","Druid","Fighter","Monk","Paladin","Ranger","Rogue","Sorcerer","Warlock","Wizard"};
     public static final String[][] subClasses = {{"Alchemist","Armorer","Artillerist","Battle Smith"},
     {"Path of the Ancestral Guardian","Path of the Battlerager","Path of the Beast","Path of the Berserker","Path of the Giant","Path of the Storm Herald","Path of the Totem Warrior","Path of Wild Magic","Path of the Zealot",},
