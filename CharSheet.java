@@ -47,7 +47,7 @@ public class CharSheet {
     //#endregion
     //#region Sheet Functions
     CharSheet(){
-
+        creatCharSheet();
     }
 
     private static void creatCharSheet () {
@@ -75,9 +75,10 @@ public class CharSheet {
     //#region Print Function
     private static String askChoices(String queston, String[] choices) {
         System.out.println(queston);
-        for(int i = 0; i < choices.length; i++) {
+        for(int i = 0; i < choices.length - 1; i++) {
             System.out.print(i + 1 + ": " + choices[i] + ", ");
         }
+        System.out.println(choices.length + ": " + choices[choices.length]);
 
         System.out.println("");
 
