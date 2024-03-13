@@ -1,6 +1,8 @@
 package utils;
 
-
+/**
+ * Contains all the ANSI Codes
+*/
 public class ANSI {
     public static final String	SANE				= "\u001B[0m";
 

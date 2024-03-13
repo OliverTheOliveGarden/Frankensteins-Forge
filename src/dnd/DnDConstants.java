@@ -1,5 +1,10 @@
 package dnd;
 
+import java.util.HashMap;
+
+/**
+ * Contains Constaint for D&D
+ */
 public class DnDConstants {
  
     public static final String[] strSkills = {"Athletics","Svaing Throw"};
@@ -31,5 +36,15 @@ public class DnDConstants {
     public static final String[] damgeTypes = {"Acid","Bludgeoning","Cold","Fire","Force","Lightning","Necrotic","Piercing","Poison","Psychic","Radiant","Slashing","Thunder"};
 
     public static final String[] dice = {"d4","d6","d10","d12","d20","d100"};
+
+    public static final HashMap<String, String[]> getSubClassDic () {
+        HashMap<String, String[]> x = new HashMap<String, String[]>();
+
+        for(int i = 0; i < classes.length; i++) {
+            x.put(classes[i], subClasses[i]);
+        }
+
+        return x;
+    }
 }
 
