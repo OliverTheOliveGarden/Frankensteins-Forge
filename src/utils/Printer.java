@@ -1,6 +1,5 @@
 package utils;
 
-import java.security.PublicKey;
 import java.util.Scanner;
 
 public class Printer {
@@ -68,7 +67,8 @@ public class Printer {
      * Prints out the standard error message
      */
     public static void errorMessage () {
-        System.out.println(ANSI.RED + ANSI.HIGH_INTENSITY + ":#%+                                                                            =+*#+-:      ");
+        System.out.println(ANSI.RED + ANSI.HIGH_INTENSITY +
+                             "  :#%+                                                                            =+*#+-:      ");
         System.out.println(":@*.-+#*=:                                                                        **: .-#*-    ");
         System.out.println("#@=...=++#*.       :+=-:                                                          =*+==:.+#=   ");
         System.out.println(" :--.....-+*:    .+#***%+.                                                         .++::::=*-  ");
@@ -95,7 +95,7 @@ public class Printer {
         System.out.println("                            :=: .. .. ::-----------::::==-:::-==*=:*@#                         ");
         System.out.println("                            .=*=:::....:::-:::-:--::==--::::--:++:=%*=                         ");
         System.out.println("                              -*###@@@+=:-::=----===--:*++++**#*#@%--                          ");
-        System.out.println("                                    -=***%-::...::..:::++*%%#---...                            ");
+        System.out.println("                                    -=***%-::...::..:::++*%%###----                            ");
         System.out.println("                                        =*@@@@@@@@@@@@@@%*-.                                   " + ANSI.SANE);
     }
 
@@ -115,7 +115,8 @@ public class Printer {
      * Prints out the standard sucsses message
      */
     public static void sucssesMessage() {
-        System.out.println(ANSI.GREEN + ANSI.HIGH_INTENSITY + "                                     =@@@@@@@@@@@%=                                                ");
+        System.out.println(ANSI.GREEN + ANSI.HIGH_INTENSITY + 
+                             "                                     =@@@@@@@@@@@%=                                                ");
         System.out.println("                              @@@##+=:............:=+##%@@                                         ");
         System.out.println("                          *@#*-..........................-*#@.                                     ");
         System.out.println("                       @@#-..................................:#@                                   ");
