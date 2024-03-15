@@ -9,12 +9,40 @@ import java.util.Scanner;
 
 import utils.Printer;
 
+// I swear to god your going to see a version of this in every thing i make with json becuse this was a pain in my ass
 public class JsonFile {
     String dirc;
     File file;
 
     /**
      * Inlizes a Json File object
+     * 
+     * @param dirc the absolute path of a the file
+     */
+    public JsonFile(String dirc) {
+        this.dirc = dirc;
+        file = new File(dirc);
+        try {
+            if (file.exists()) {
+                return;
+            } 
+            if (file.createNewFile()) {
+                creatJsonFile();
+            } else {
+                Printer.errorMessage();
+            } 
+            
+        } catch (IOException e) {
+            Printer.errorMessage();
+            Printer.errorMessage("IOException");
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Inlizes a Json File object
+     * 
+     * Overloads JsonFile
      * 
      * @param dirc Directory (The Folder)
      * @param fileName The file's name without file exstenion
@@ -85,20 +113,15 @@ public class JsonFile {
      * 
      * @return String[]
      */
-    public String[] toArray() {
+    public ArrayList<String> toArraylist() {
         ArrayList<String> x = new ArrayList<String>();
-        String[] y;
         try {
             Scanner reader = new Scanner(file);
             while (reader.hasNextLine()) {
                 x.add(reader.nextLine());
             }
             reader.close();
-            y = new String[x.size()];
-            for (int i = 0; i < x.size(); i++) {
-                y[i] = x.get(i);
-            }
-            return y;
+            return x;
         } catch (FileNotFoundException e) {
             Printer.errorMessage();
             Printer.errorMessage("File not found");
@@ -119,5 +142,90 @@ public class JsonFile {
             y+= x[i] + "\n";
         }
         return y;
+    }
+
+    /**
+     * Gets an int value form the json file
+     * 
+     * @param key The name of the value
+     * @return The value
+     */
+    public int getInt (String key) {
+        for (int i = 0; i < toArraylist().size(); i++) {
+            String x = toArraylist().get(i);
+            if (x.contains(key)) {
+                x = x.substring(x.lastIndexOf(":") + 1);
+                x = (x.substring(x.length() - 1, x.length()).equals(",")) ? x.substring(0, x.length() - 1)  : x;
+                x = x.trim();
+                return Integer.parseInt(x);
+            }   
+        }
+        Printer.errorMessage();
+        Printer.errorMessage("Varible not found");
+        return -1111111111;
+    }
+
+     /**
+     * Gets an double value form the json file
+     * 
+     * @param key The name of the value
+     * @return The value
+     */
+    public double getDouble (String key) {
+        for (int i = 0; i < toArraylist().size(); i++) {
+            String x = toArraylist().get(i);
+            if (x.contains(key)) {
+                x = x.substring(x.lastIndexOf(":") + 1);
+                x = (x.substring(x.length() - 1, x.length()).equals(",")) ? x.substring(0, x.length() - 1)  : x;
+                x = x.trim();
+                return Double.parseDouble(x);
+            }   
+        }
+        Printer.errorMessage();
+        Printer.errorMessage("Varible not found");
+        return -1111111111;
+    }
+
+    /**
+     * Gets an boolen value form the json file
+     * 
+     * @param key The name of the value
+     * @return The value
+     */
+    public boolean getBoolen (String key) {
+        for (int i = 0; i < toArraylist().size(); i++) {
+            String x = toArraylist().get(i);
+            if (x.contains(key)) {
+                x = x.substring(x.lastIndexOf(":") + 1);
+                x = (x.substring(x.length() - 1, x.length()).equals(",")) ? x.substring(0, x.length() - 1)  : x;
+                x = x.trim();
+                return Boolean.parseBoolean(x);
+            }   
+        }
+        Printer.errorMessage();
+        Printer.errorMessage("Varible not found");
+        return false;
+    }
+
+    /**
+     * Gets an string value form the json file
+     * 
+     * @param key The name of the value
+     * @return The value
+     */
+    public String getString (String key) {
+        for (int i = 0; i < toArraylist().size(); i++) {
+            String x = toArraylist().get(i);
+            if (x.contains(key)) {
+                x = x.substring(x.lastIndexOf(":") + 1);
+                x = x.trim();
+                x = (x.substring(x.length() - 1, x.length()).equals(",")) ? x.substring(1, x.length() - 2)  : x.substring(1, x.length() - 1);
+                
+                return x;
+            }   
+        }
+        Printer.errorMessage();
+        Printer.errorMessage("Varible not found");
+        return null;
     }
 }
