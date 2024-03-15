@@ -1,0 +1,7 @@
+{
+    "name": "Example",
+    "atkDice": "d6",
+    "numOfAtkDice": 1,
+    "atkBonus": 2,
+    "damgeType": "Slashing"
+}

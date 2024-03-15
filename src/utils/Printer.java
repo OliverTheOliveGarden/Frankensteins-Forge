@@ -1,5 +1,6 @@
 package utils;
 
+import java.security.PublicKey;
 import java.util.Scanner;
 
 public class Printer {
@@ -62,5 +63,108 @@ public class Printer {
             System.out.println(ANSI.RED + ANSI.HIGH_INTENSITY + "ERROR: Ivaild Input" + ANSI.SANE);
             return askString(queston);
         }
+    }
+    /**
+     * Prints out the standard error message
+     */
+    public static void errorMessage () {
+        System.out.println(ANSI.RED + ANSI.HIGH_INTENSITY + ":#%+                                                                            =+*#+-:      ");
+        System.out.println(":@*.-+#*=:                                                                        **: .-#*-    ");
+        System.out.println("#@=...=++#*.       :+=-:                                                          =*+==:.+#=   ");
+        System.out.println(" :--.....-+*:    .+#***%+.                                                         .++::::=*-  ");
+        System.out.println(" -+@%-.:.=++##===#*.. .**.                                               =*@@#-     -=.::::..: ");
+        System.out.println("   -=-:--....::--:.:-=**.                 *@@=%@*#@@@@==:                =+=.:*#-  :#+::::::#+ ");
+        System.out.println("   :+==---:::::::::::--.              +@@@@-  :.     *@%%%%+-:           *+-.:.--  =+-:::::.*= ");
+        System.out.println("    =+=::--=-:::::-:-.              *@@%-    .::::.....   .=+*#=.        :=*.:.+@@@+=.:::::.*= ");
+        System.out.println("    .-+=::-=::::::-:-.          .:+++-..-*@%*-.:..-***==++==--+***=        =+=:---....::::. ++ ");
+        System.out.println("     :+==:--::::::-=-.        .+**+##*=--:.           .-======---%@.       =+-::...::-==---=+= ");
+        System.out.println("      +*=-=-:::::..:-:.       =*=+---.  .    =+*+-+=:    .:::--:::=*+.     =+::=::-=---::-+@%= ");
+        System.out.println("      .++=-:::::.=+*:       :#*-::::::...-@@@@@@@@@@@@@*-  ::----::=++.    +#+=-::.-:::-+++    ");
+        System.out.println("        -**+=:..-++=:       =+=:---:.  *@@@@@@@@@@@@@@@@@#: .:----::=#*-   .-**- .:=+**#-::    ");
+        System.out.println("         .-=*##*##=.      -*+==:---..+@@@@@@@@@@@@@@@@@@@@@+  :----::-+-      -%%%%#===-       ");
+        System.out.println("            ::::..        ++-::---. +@@@@@@@@@@@@@@@@@@@@@@@+:.:----:---..          .          ");
+        System.out.println("                          =+.=---. -@@@@@@@@%%%%%%%%%%@@@@@@@*. ----:--%@                      ");
+        System.out.println("                          =+.---: =@@@@@@@@%%@@@@@@@@%@@@@@@@@- .:--==:*@                      ");
+        System.out.println("                          =*..-: -*@@@@@@@@%@@@@@@@@@@%@@@@@@@@=:.:::..*@                      ");
+        System.out.println("                          -*:+-  =@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#-.-:==:#@                      ");
+        System.out.println("                          =*.:-:-@@@@@@@@@@#        =%@@@@@@@@@@* :---=%#.                     ");
+        System.out.println("                          =*:.-.#@@@@@@@@=    .:...    **@@@@@@@@---:::-.                      ");
+        System.out.println("                           +=-:.#@@@@@#+   ..:::-::...  .*@@@@@@@=:++##=                       ");
+        System.out.println("                           -*#==#@@@@%- .:-===------==::. =%@@@@@=.-=+=:                       ");
+        System.out.println("                            -=-#@@@@:...:--------------:.: .:#@@@#==%=                         ");
+        System.out.println("                            :=: .. .. ::-----------::::==-:::-==*=:*@#                         ");
+        System.out.println("                            .=*=:::....:::-:::-:--::==--::::--:++:=%*=                         ");
+        System.out.println("                              -*###@@@+=:-::=----===--:*++++**#*#@%--                          ");
+        System.out.println("                                    -=***%-::...::..:::++*%%#---...                            ");
+        System.out.println("                                        =*@@@@@@@@@@@@@@%*-.                                   " + ANSI.SANE);
+    }
+
+    /**
+     * Prints out an error message in the standard format
+     * 
+     * Overloads errorMessage 
+     *
+     * @param message the messsage being printed out
+     */
+    public static void errorMessage(String message) {
+        message = ANSI.HIGH_INTENSITY + ANSI.RED + "Error: " + message + ANSI.SANE;
+        System.out.println(message);
+    }
+    
+    /**
+     * Prints out the standard sucsses message
+     */
+    public static void sucssesMessage() {
+        System.out.println(ANSI.GREEN + ANSI.HIGH_INTENSITY + "                                     =@@@@@@@@@@@%=                                                ");
+        System.out.println("                              @@@##+=:............:=+##%@@                                         ");
+        System.out.println("                          *@#*-..........................-*#@.                                     ");
+        System.out.println("                       @@#-..................................:#@                                   ");
+        System.out.println("                     @#=..............................%@@@%#:...-%@                                ");
+        System.out.println("                   @#-......@@@@@@@@@@@@@::.........@@@#*##%@@@%..=%*                              ");
+        System.out.println("                 @#-.......:@@@@@@@@@@@@.............%@@@@@@@@@#.:::+@                             ");
+        System.out.println("            :-.#@=...........@@-:....................................:%#                           ");
+        System.out.println("          @    *.......................................................*@                          ");
+        System.out.println("    @   @ #    @..........................................::-:..........+@                         ");
+        System.out.println("   @    -@ @@@@. ............:--...........:.............................**                        ");
+        System.out.println("   @ =+@@*. @*      *.......................:=.............@@@@@@:........-@@                      ");
+        System.out.println("   @    +.@@   :@    @.....%@@@@@@@@@@@@@@@=.........@@@@@@%****#@@@@@@@@@@#@@                     ");
+        System.out.println("   @.:=@@  * @@@@@@@@@@@@@@%#*************#@@@@@@@@@@@#******************#%@%@                     ");
+        System.out.println("        .=* @-...@=  @@@%***********************************************%@-.-@                     ");
+        System.out.println("   @:   .@@@#+..@@   @..@**********************************************@%...-@@                    ");
+        System.out.println("  @:    -@@#   @: .  +..@*********************************************%@....:@@                    ");
+        System.out.println(" =#     =@        -@*=+-@#*********************###*******************%@:...::@                     ");
+        System.out.println(" @      @*       @@-::...@%*******************%@:@#*****************%@.....::@                     ");
+        System.out.println(" @     +@ .:-@@@%..:::::..@@#***************%@@.::@@#*************%@@......:-@                     ");
+        System.out.println("=%@@@#@@.%@+-..............+@@#***********#@@...:-..@@#*********%@@........:*@                     ");
+        System.out.println("%     @@##-:.-...............:@@@%#****%@@@%.....-+-::@@@@@@@@@%%....*..:..=@*                     ");
+        System.out.println("    *@@ .%=-::......::...........#@@@@@@+......................-#@@@#@@-:::+@                      ");
+        System.out.println("         @=::......+@@@@@@@@%%#+.........................@@@@@@@@@.........#@        @ : .         ");
+        System.out.println("         @+---..........+@@@--  .+@*@@@@@@@@@@@@@@@@@@@@-*# .@@@..........:@@        @    *        ");
+        System.out.println("         +%---:.............@@@@. -     :     :     =   .@@@@:............#@         @ -*-.        ");
+        System.out.println("          @*---...............-+  @+*+**@%+*++@%=-:.@=++@ @*.....:.......=@.         @    @        ");
+        System.out.println("          .%=--:.................*@     :     :     * . -@@....-=:......:@@          @ -@          ");
+        System.out.println("           @#=--...................=@=. :     :     @ .:-....:%+.......:@@           @    +.       ");
+        System.out.println("            @#--.............--.........#@*-=#@*=-+==.......#@:.......:@@            *.@@   .:.:   ");
+        System.out.println("             @%=:..............%%:........................*@:......:-*@@            @ @@         @ ");
+        System.out.println("              @@*-...............%@#....................%@:......::-@@             @@ #-         @ ");
+        System.out.println("               .@%+:................@@@:.............@@@-.:.....:=@@@             @.  @@@-=@@@@@@@ ");
+        System.out.println("                 @@@=:................:+%@@@@@@@@@@@@-......:::=@@@               @:@@:+.        . ");
+        System.out.println("                   @@@*:.:::...........:=---====:.........:.:=@@@                 @%@@           . ");
+        System.out.println("                     +@@%=::::-:::......................:-*@@@@                     @+@@@@@@@@@@@* ");
+        System.out.println("                        @@@@%=-::..................:-=#@@@@=                         @%        -   ");
+        System.out.println("                            @@@@@@@@#+=------=+%@@@@@@@.                             :@        @   ");
+        System.out.println("                                  .*@@@@@@@@@@@@=                                      =*@@@@@@    " + ANSI.SANE);
+    }
+
+    /**
+     * Prints out an sucsses message in the standard format
+     * 
+     * Overloads sucssesMessage 
+     *
+     * @param message the messsage being printed out
+     */
+    public static void sucssesMessage (String message) {
+        message = ANSI.HIGH_INTENSITY + ANSI.GREEN + message + ANSI.SANE;
+        System.out.println(message);
     }
 }
