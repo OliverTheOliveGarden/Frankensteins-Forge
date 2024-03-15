@@ -45,7 +45,7 @@ public class JsonFile {
     void creatJsonFile () {
         try {
             FileWriter writer = new FileWriter(dirc);
-            writer.write("{\n\"Tehehhe\": 1\n}");
+            writer.write("{\n\n}");
             writer.close();
             if (file.length() > 0) {
                 Printer.sucssesMessage();
@@ -105,5 +105,19 @@ public class JsonFile {
             e.printStackTrace();
             return null;
         }
+    }
+
+    /**
+     * Truns a String Array in to a string with new line Charcters
+     * 
+     * @param x The String[] that will be turned into a string 
+     * @return The final string
+     */
+    public static String arrayToString (String[] x) {
+        String y = "";
+        for (int i = 0; i < x.length; i++){
+            y+= x[i] + "\n";
+        }
+        return y;
     }
 }
