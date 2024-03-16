@@ -1,10 +1,9 @@
+package dnd;
+
 import java.util.HashMap;
 
 import utils.DiceRoller;
 import utils.Printer;
-
-import dnd.Attack;
-import dnd.DnDConstants;
 
 public class CharSheet { 
     //#region Golbal Vars
