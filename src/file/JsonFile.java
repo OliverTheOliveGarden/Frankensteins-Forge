@@ -11,17 +11,17 @@ import utils.Printer;
 
 // I swear to god your going to see a version of this in every thing i make with json becuse this was a pain in my ass
 public class JsonFile {
-    String dirc;
+    String path;
     File file;
 
     /**
      * Inlizes a Json File object
      * 
-     * @param dirc the absolute path of a the file
+     * @param path the absolute path of a the file
      */
-    public JsonFile(String dirc) {
-        this.dirc = dirc;
-        file = new File(dirc);
+    public JsonFile(String path) {
+        this.path = path;
+        file = new File(path);
         try {
             if (file.exists()) {
                 return;
@@ -44,12 +44,12 @@ public class JsonFile {
      * 
      * Overloads JsonFile
      * 
-     * @param dirc Directory (The Folder)
+     * @param path Directory (The Folder)
      * @param fileName The file's name without file exstenion
      */
-    public JsonFile(String dirc, String fileName) {
-        this.dirc = dirc + "\\" + fileName + ".json";
-        file = new File(this.dirc);
+    public JsonFile(String path, String fileName) {
+        this.path = path + "\\" + fileName + ".json";
+        file = new File(this.path);
         try {
             if (file.exists()) {
                 return;
@@ -74,7 +74,7 @@ public class JsonFile {
      */
     void write (String x) {
         try {
-            FileWriter writer = new FileWriter(dirc);
+            FileWriter writer = new FileWriter(path);
             writer.write(x);
             writer.close();
         } catch (IOException e) {
@@ -270,7 +270,7 @@ public class JsonFile {
      * @param value the value
      */
     public void put (String key, int value) {
-        ArrayList<String> y = toArraylist();
+        ArrayList<String> y = toArraylist(); 
         if (y.size() == 2) {
             y.add(y.size() - 1, "   \"" + key + "\": " + value);
         } else if (y.size() > 2) {
@@ -281,7 +281,7 @@ public class JsonFile {
     }
 
     /**
-     * Adds a int value to the json file
+     * Adds a boolen value to the json file
      * 
      * @param key the value's name
      * @param value the value
@@ -298,7 +298,7 @@ public class JsonFile {
     }
 
     /**
-     * Adds a int value to the json file
+     * Adds a double value to the json file
      * 
      * @param key the value's name
      * @param value the value
@@ -312,5 +312,97 @@ public class JsonFile {
             y.add(y.size() - 1, "   \"" + key + "\": " + value);
         }
         write(arrayListToString(y));
+    }
+
+    /**
+     * Canges a value in the json file
+     * 
+     * @param key The name of the value
+     * @param value The new value
+     */
+    public void change (String key, double value) {
+        ArrayList<String> y = toArraylist();
+        if (y.size() == 3) {
+            y.set(1, "  \"" + key + "\": " + value);
+        } else if (y.size() > 3) {
+            for (int i = 0; i < y.size(); i++) {
+                String x = y.get(i);
+                if (x.contains(key)) {
+                    x = (y.get(i + 1).trim().equals("}")) ? "" : ",";  
+                    y.set(i, "  \"" + key + "\": " + value + x);
+                }   
+            }
+        }
+        write(arrayListToString(y));
+    }
+
+    /**
+     * Canges a value in the json file
+     * 
+     * @param key The name of the value
+     * @param value The new value
+     */
+    public void change (String key, int value) {
+        ArrayList<String> y = toArraylist();
+        if (y.size() == 3) {
+            y.set(1, "  \"" + key + "\": " + value);
+        } else if (y.size() > 3) {
+            for (int i = 0; i < y.size(); i++) {
+                String x = y.get(i);
+                if (x.contains(key)) {
+                    x = (y.get(i + 1).trim().equals("}")) ? "" : ",";  
+                    y.set(i, "  \"" + key + "\": " + value + x);
+                }   
+            }
+        }
+        write(arrayListToString(y));
+    }
+
+    /**
+     * Canges a value in the json file
+     * 
+     * @param key The name of the value
+     * @param value The new value
+     */
+    public void change (String key, boolean value) {
+        ArrayList<String> y = toArraylist();
+        if (y.size() == 3) {
+            y.set(1, "  \"" + key + "\": " + value);
+        } else if (y.size() > 3) {
+            for (int i = 0; i < y.size(); i++) {
+                String x = y.get(i);
+                if (x.contains(key)) {
+                    x = (y.get(i + 1).trim().equals("}")) ? "" : ",";  
+                    y.set(i, "  \"" + key + "\": " + value + x);
+                }   
+            }
+        }
+        write(arrayListToString(y));
+    }
+
+    /**
+     * Canges a value in the json file
+     * 
+     * @param key The name of the value
+     * @param value The new value
+     */
+    public void change (String key, String value) {
+        ArrayList<String> y = toArraylist();
+        if (y.size() == 3) {
+            y.set(1, "  \"" + key + "\": \"" + value + "\"");
+        } else if (y.size() > 3) {
+            for (int i = 0; i < y.size(); i++) {
+                String x = y.get(i);
+                if (x.contains(key)) {
+                    x = (y.get(i + 1).trim().equals("}")) ? "" : ",";  
+                    y.set(i, "  \"" + key + "\": \"" + value + "\"" + x);
+                }   
+            }
+        }
+        write(arrayListToString(y));
+    }   
+
+    public String getPath () {
+        return path;
     }
 }
