@@ -402,6 +402,9 @@ public class JsonFile {
         write(arrayListToString(y));
     }   
 
+    /**
+     * @return the path varible
+     */
     public String getPath () {
         return path;
     }

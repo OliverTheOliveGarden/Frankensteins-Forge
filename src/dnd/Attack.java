@@ -10,8 +10,6 @@ public class Attack {
     String damgeType;
     int atkBonus;
     
-    JsonFile file = new JsonFile(savingConstants.atksSavePath, name);
-    
     /** 
      * Instilzes all varibles
      * 
@@ -27,6 +25,7 @@ public class Attack {
         this.numOfAtkDice = numOfAtkDice;
         this.damgeType = damgeType;
         this.atkBonus = atkBonus;
+        creatJson();
     }
 
     /**
@@ -44,11 +43,6 @@ public class Attack {
         this.numOfAtkDice = numOfAtkDice;
         this.damgeType = damgeType;
         this.atkBonus = atkBonus;
-        file.change("name", name);
-        file.change("atkDice", atkDice);
-        file.change("numOfAtkDice", numOfAtkDice);
-        file.change("damgeType", damgeType);
-        file.change("atkBonus", atkBonus);
     }
 
     @Override
@@ -67,11 +61,34 @@ public class Attack {
         } 
     }
 
-    public void creatJson () {
+    /**
+     * Creats a json file for the attack
+     * 
+     * @return the file's path
+     */
+    public String creatJson () {
+        JsonFile file = new JsonFile(savingConstants.atksSavePath, name);
         file.put("name", name);
         file.put("atkDice", atkDice);
         file.put("numOfAtkDice", numOfAtkDice);
         file.put("damgeType", damgeType);
         file.put("atkBonus", atkBonus);
+        return file.getPath();
+    }
+
+    /**
+     * Gets an Attack object form a json file
+     * 
+     * @param path the path to the json file
+     * @return the new Attack created form the json
+     */
+    public static Attack getAttackFormJson(String path) {
+        JsonFile file = new JsonFile(path);
+        String name = file.getString("name");
+        String atkDice = file.getString("atkDice");
+        int numOfAtkDice = file.getInt("numOfAtkDice");
+        String damgeType = file.getString("damgeType");
+        int atkBonus = file.getInt("atkBonus");
+        return new Attack(name, atkDice, numOfAtkDice, damgeType, atkBonus);
     }
 }
